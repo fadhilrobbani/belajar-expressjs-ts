@@ -1,5 +1,4 @@
 import express from 'express';
-import getConnection from '../config/database';
 import { findAllUser, createUser } from '../controller/UserController';
 
 const usersRouter = express.Router();
