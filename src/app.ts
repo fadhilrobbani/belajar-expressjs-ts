@@ -1,13 +1,12 @@
 import express from 'express';
-require('dotenv').config();
+import usersRouter from './routes/users';
+import 'dotenv/config';
 
 const app = express();
-app.get('/', (req, res) => {
-  res.send('hallo');
-});
-
-app.get('/env', (req, res) => {
-  res.send(process.env.APP_NAME);
-});
+const port = process.env.PORT || 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(usersRouter);
+app.listen(port, () => console.log('⚡Running at port 3000⚡'));
 
 export default app;
